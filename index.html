@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONETRA - Download App</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1a73e8;
+            --text-dark: #202124;
+            --text-light: #5f6368;
+            --bg-light: #ffffff;
+            --bg-very-light: #f8f9fa;
+            --border-color: #e8eaed;
+            --star-color: #fbbc04;
+            --gradient-1: linear-gradient(135deg, #81c784, #4caf50);
+            --gradient-2: linear-gradient(135deg, #64b5f6, #2196f3);
+            --gradient-3: linear-gradient(135deg, #ffb74d, #ff9800);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-very-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: var(--bg-light);
+        }
+
+        /* --- Header Bar --- */
+        .top-header {
+            background: var(--bg-light);
+            padding: 12px 20px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .back-btn {
+            color: var(--text-light);
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .header-info { flex: 1; }
+        .app-name-top {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        /* --- Main App Info Section --- */
+        .app-main-section {
+            padding: 24px 20px;
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 20px;
+            align-items: start;
+        }
+        .app-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            object-fit: cover;
+        }
+        .app-title-section h1 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .developer-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .install-button {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px 24px; /* Bigger button */
+            border-radius: 8px;
+            font-size: 16px; /* Bigger font */
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            margin-top: 16px;
+            transition: background-color 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .install-button:hover {
+            background-color: #1557b0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+        }
+
+        /* --- Stats Section --- */
+        .stats-row {
+            display: flex;
+            justify-content: space-around;
+            padding: 16px 20px;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .stat-item { text-align: center; }
+        .stat-icon { color: var(--text-light); font-size: 18px; margin-bottom: 8px; }
+        .stat-value { font-size: 14px; color: var(--text-dark); font-weight: 500; }
+        .stat-label { font-size: 12px; color: var(--text-light); }
+
+        /* --- Screenshots Section --- */
+        .screenshots-section {
+            padding: 24px 0 24px 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .screenshot-card {
+            display: inline-block;
+            width: 180px;
+            height: 320px;
+            border-radius: 16px;
+            margin-right: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+        .screenshot-card i { font-size: 36px; }
+        .screenshot-card span { font-size: 16px; font-weight: 500; white-space: normal; }
+        .ss-1 { background: var(--gradient-1); }
+        .ss-2 { background: var(--gradient-2); }
+        .ss-3 { background: var(--gradient-3); }
+
+        /* --- About & Reviews Sections --- */
+        .content-section { padding: 24px 20px; border-top: 8px solid var(--bg-very-light); }
+        .section-title {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+        .app-description { color: var(--text-light); margin-bottom: 24px; }
+        .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tag { background: #e8f0fe; color: var(--primary-blue); padding: 6px 12px; border-radius: 16px; font-size: 12px; font-weight: 500; }
+        
+        .review-item { padding: 16px 0; border-top: 1px solid var(--border-color); }
+        .review-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .reviewer-avatar { width: 32px; height: 32px; border-radius: 50%; background: #e0e0e0; }
+        .reviewer-name { font-weight: 500; font-size: 14px; }
+        .review-info { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+        .stars { color: var(--star-color); font-size: 14px; }
+        .review-date { color: var(--text-light); font-size: 12px; }
+        .review-text { color: var(--text-dark); }
+        
+        @media (max-width: 600px) {
+            .app-main-section { grid-template-columns: 64px 1fr; }
+            .app-icon { width: 64px; height: 64px; }
+            .app-title-section h1 { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-header">
+        <i class="fas fa-arrow-left back-btn"></i>
+        <div class="header-info">
+            <div class="app-name-top">MONETRA</div>
+        </div>
+        <i class="fas fa-search" style="color: #5f6368; cursor: pointer;"></i>
+        <i class="fas fa-ellipsis-v" style="color: #5f6368; cursor: pointer; margin-left: 16px;"></i>
+    </div>
+
+    <div class="container">
+        <section class="app-main-section">
+            <img src="monetra-icon.png" alt="MONETRA App Icon" class="app-icon">
+            <div class="app-title-section">
+                <h1>MONETRA: Earn Real Rewards</h1>
+                <a href="#" class="developer-link">Task & Reward Company</a>
+            </div>
+        </section>
+
+        <section class="stats-row">
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fas fa-star"></i></div>
+                <div class="stat-value">4.8</div>
+                <div class="stat-label">Rating</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fas fa-download"></i></div>
+                <div class="stat-value">50K+</div>
+                <div class="stat-label">Downloads</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon"><i class="fas fa-file-alt"></i></div>
+                <div class="stat-value">31 MB</div>
+                <div class="stat-label">Size</div>
+            </div>
+        </section>
+
+        <section class="screenshots-section">
+            <div class="screenshot-card ss-1">
+                <i class="fas fa-tasks"></i>
+                <span>Complete Simple Tasks</span>
+            </div>
+            <div class="screenshot-card ss-2">
+                <i class="fas fa-wallet"></i>
+                <span>Track Your Earnings</span>
+            </div>
+            <div class="screenshot-card ss-3">
+                <i class="fas fa-gift"></i>
+                <span>Redeem Instant Rewards</span>
+            </div>
+        </section>
+        
+        <div style="padding: 0 20px;">
+             <a href="com.mycomapny.slshortner-1.apk" class="install-button" download>Install</a>
+        </div>
+
+        <section class="content-section">
+            <h2 class="section-title">About this app</h2>
+            <p class="app-description">
+                Welcome to MONETRA, the ultimate platform for turning your spare time into real cash and rewards. Complete simple tasks like surveys, app testing, and more. Our high-paying offers ensure you get the most value for your time. With over 50,000 downloads, join a growing community of earners today!
+            </p>
+            <div class="tags">
+                <span class="tag">#1 Rewards App</span>
+                <span class="tag">Make Money</span>
+                <span class="tag">Task App</span>
+                <span class="tag">Instant Payout</span>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 class="section-title">Ratings and reviews</h2>
+            <div class="review-item">
+                <div class="review-header"><img src="profile.png" class="reviewer-avatar"><span class="reviewer-name">Rohan Sharma</span></div>
+                <div class="review-info"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><span class="review-date">July 1, 2024</span></div>
+                <p class="review-text">Finally, a genuine app that pays on time. The tasks are easy and the interface is very user-friendly. Redeemed my first payment via UPI, and it was instant. Highly recommended!</p>
+            </div>
+            <div class="review-item">
+                <div class="review-header"><img src="profile.png" class="reviewer-avatar"><span class="reviewer-name">Priya Patel</span></div>
+                <div class="review-info"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div><span class="review-date">June 28, 2024</span></div>
+                <p class="review-text">Good app for earning some side income. Sometimes the high-paying tasks run out quickly, but new ones are added regularly. The Amazon Pay gift card option is great.</p>
+            </div>
+             <div class="review-item">
+                <div class="review-header"><img src="profile.png" class="reviewer-avatar"><span class="reviewer-name">Ankit Kumar</span></div>
+                <div class="review-info"><div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><span class="review-date">June 25, 2024</span></div>
+                <p class="review-text">Best app for students. I make enough for my monthly mobile recharge and snacks. The referral program is also a nice bonus. Keep up the good work!</p>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>
